@@ -229,6 +229,9 @@ def prepare_enviroment():
         elif platform.system() == "Linux":
             run_pip("install xformers", "xformers")
 
+    if not is_installed("deepdanbooru"):
+      run_pip("install git+https://github.com/KichangKim/DeepDanbooru.git@c48689a85dde0e4a852c1691a7d746abe242e283#egg=deepdanbooru[tensorflow] tensorflow==2.9.2 tensorflow-io==0.28.0", "deepdanbooru")
+    
     if not is_installed("pyngrok") and ngrok:
         run_pip("install pyngrok", "ngrok")
 
